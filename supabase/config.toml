@@ -1,0 +1,7 @@
+project_id = "ibgilvpjbrvtkhtcrrqz"
+
+[functions.fetch-odds]
+verify_jwt = false
+
+[functions.simulate-bankroll]
+verify_jwt = false
