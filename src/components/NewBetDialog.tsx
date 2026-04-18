@@ -107,7 +107,6 @@ export function NewBetDialog({ onCreated, prefill }: { onCreated?: () => void; p
         user_id: user.id, bankroll_id: bankrollId, type: "bet_stake", amount: -stakeN,
         bet_id: bet?.id, description: `Aposta #${bet?.id.slice(0, 8)}`,
       });
-      await supabase.rpc("noop_placeholder").then(() => undefined).catch(() => undefined);
       // Update current_balance
       const { data: br } = await supabase.from("bankrolls").select("current_balance").eq("id", bankrollId).single();
       if (br) await supabase.from("bankrolls").update({ current_balance: Number(br.current_balance) - stakeN }).eq("id", bankrollId);
